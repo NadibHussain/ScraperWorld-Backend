@@ -13,9 +13,7 @@ services:
 
   server:
     container_name: core_server
-    build: .
-    restart: always
-    command: gunicorn django_rest.wsgi:application --bind 0.0.0.0:8000
+    image: nadib/scraperworld-backend:main
     expose:
       - 8000
     volumes:
@@ -27,28 +25,20 @@ services:
     #   - db
     # links:
     #   - db:db
-    networks:
-      - servernet
 
-  nginx:
-    container_name: nginx
-    build: ./nginx
-    restart: always
-    ports:
-      - 8080:80
-    depends_on:
-      - server
-    volumes:
-      - media_data:/media
-      - static_data:/static
-    networks:
-      - servernet
+  # nginx:
+  #   container_name: nginx
+  #   build: ./nginx
+  #   restart: always
+  #   ports:
+  #     - 8080:80
+  #   depends_on:
+  #     - server
+  #   volumes:
+  #     - media_data:/media
+  #     - static_data:/static
 
 volumes:
   media_data:
   static_data:
   postgres_data:
-
-networks:
-  servernet:
-    driver: bridge
