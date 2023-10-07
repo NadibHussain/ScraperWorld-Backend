@@ -16,7 +16,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AuthUser
-        fields = '__all__'
+        exclude = ('user_permissions','last_login','is_staff','is_superuser','groups','is_active' )
         extra_kwargs = {
             'password': {'write_only': True},
         }
