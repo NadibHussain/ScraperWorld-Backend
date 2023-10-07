@@ -26,17 +26,16 @@ services:
     # links:
     #   - db:db
 
-  # nginx:
-  #   container_name: nginx
-  #   build: ./nginx
-  #   restart: always
-  #   ports:
-  #     - 8080:80
-  #   depends_on:
-  #     - server
-  #   volumes:
-  #     - media_data:/media
-  #     - static_data:/static
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    ports:
+      - 8080:80
+    depends_on:
+      - server
+    volumes:
+      - media_data:/media
+      - static_data:/static
 
 volumes:
   media_data:
