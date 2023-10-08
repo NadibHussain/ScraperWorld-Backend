@@ -1,9 +1,5 @@
-from django.contrib.auth.models import update_last_login
-from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-
-from authentication.models.custom_users import user_model
 from authentication.models.users import AuthUser
 
 
@@ -20,5 +16,3 @@ class RegisterSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             'password': {'write_only': True},
         }
-
-
