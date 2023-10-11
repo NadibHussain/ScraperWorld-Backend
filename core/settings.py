@@ -41,6 +41,7 @@ CORS_ALLOW_METHODS = (
     'OPTIONS',
     'PATCH',
 )
+CORS_ALLOW_CREDENTIALS = True
 # Application definition
 
 DJANGO_APPS = [
